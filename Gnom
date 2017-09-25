@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+void gnom (int size, int mas [])
+{
+   int nowNumber = 0;
+   int nextNumber = 1;
+   while (nowNumber < size - 1)
+   {
+        if (mas [nowNumber] < mas [nowNumber + 1]) 
+         {
+            nowNumber = nextNumber;
+            nextNumber ++;
+         } 
+        else
+         {
+            swap (mas [nowNumber], mas [nowNumber + 1]);
+            nowNumber = nowNumber - 1;
+            if (nowNumber == - 1)
+              {
+                 nowNumber = nextNumber;
+                 nextNumber ++; 
+               }
+         }
+   }
+   
+   for (int i = 0; i < size; i ++)
+      cout << mas [i] << " ";
+}
+int main() {
+int size = 0;
+cin >> size;
+int * mas = new int [size];
+for (int i = 0; i < size; i ++)
+{
+   mas [i] = 0;
+   cin >> mas [i];
+}
+gnom (size, mas);
+delete [] mas;
+    return 0;
+}
